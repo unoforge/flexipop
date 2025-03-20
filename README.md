@@ -49,6 +49,14 @@ new CreatePopper(
 
 > ⚠ The popperElement must have set `position` to `fixed`.
 
+```css
+[data-popper-el] {
+    position: fixed;
+    left    : var(--fx-popper-placement-x, 0px);
+    top     : var(--fx-popper-placement-y, 0px);
+}
+```
+
 
 
 ## Usage with position absolute

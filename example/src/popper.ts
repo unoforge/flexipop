@@ -58,3 +58,17 @@ if (popperElAB instanceof HTMLElement && referenceAB instanceof HTMLElement) {
         })
     }
 }
+
+const triggerDemo = document.querySelector("[data-trigger-it]") as HTMLButtonElement
+const elDemo = document.querySelector("[data-popper-el-demo]") as HTMLElement
+
+if (triggerDemo && elDemo) {
+    const popper = new CreatePopper(triggerDemo, elDemo, {
+        placement: "right",
+        onUpdate({ placement }) {
+            console.log(placement)
+        }
+    })
+    popper.updatePosition()
+
+}

@@ -80,11 +80,11 @@ export const determinePosition = (
     if (placement.startsWith("top")) {
         y = canPlaceTop ? placeTop : canPlaceBottom ? placeBottom : Math.max(placeTop, placeBottom);
     } else if (placement.startsWith("bottom")) {
-        y = canPlaceBottom ? placeBottom : canPlaceTop ? placeTop : Math.max(placeTop, placeBottom);
+        y = canPlaceBottom ? placeBottom : canPlaceTop ? placeTop : Math.max(placeBottom), placeTop;
     } else if (placement.startsWith("left")) {
         x = canPlaceLeft ? placeLeft : canPlaceRight ? placeRight : Math.max(placeLeft, placeRight);
     } else if (placement.startsWith("right")) {
-        x = canPlaceRight ? placeRight : canPlaceLeft ? placeLeft : Math.max(placeLeft, placeRight);
+        x = canPlaceRight ? placeRight : canPlaceLeft ? placeLeft : Math.max(placeRight, placeLeft);
     }
 
     switch (placement) {
