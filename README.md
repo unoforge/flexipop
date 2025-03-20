@@ -34,7 +34,7 @@ new CreatePopper(
     {
     //   options here
     }
-  )
+)
 ```
 
 ### HTML Markup
@@ -70,7 +70,7 @@ new CreatePopper(
     {
     //   options here
     }
-  )
+)
 ```
 
 > [!IMPORTANT]
