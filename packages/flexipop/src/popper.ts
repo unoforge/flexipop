@@ -1,8 +1,15 @@
 import { DEFAULT_OFFSETDISTANCE, DEFAULT_PLACEMENT } from "./const";
 import { getDimensions } from "./utils";
 import { Placement, PopperOptions } from "./types";
-import { determinePosition } from "./withFixed/helpers";
+import { determinePosition } from "./helpers";
 
+/**
+ * Flexilla Popper --
+ */
+/**
+ * Creates and manages a popper element that can be positioned relative to a reference element
+ * @class
+ */
 class CreatePopper {
     private reference: HTMLElement
     private popper: HTMLElement
@@ -18,6 +25,18 @@ class CreatePopper {
      * @param reference 
      * @param popper 
      * @param options 
+     */
+    /**
+     * Creates an instance of CreatePopper
+     * @param {HTMLElement} reference - The reference element to position against
+     * @param {HTMLElement} popper - The element to be positioned
+     * @param {PopperOptions} [options] - Configuration options
+     * @param {number} [options.offsetDistance] - Distance between popper and reference element
+     * @param {Placement} [options.placement] - Preferred placement of the popper
+     * @param {Object} [options.eventEffect] - Event handling configuration
+     * @param {boolean} [options.eventEffect.disableOnResize] - Disable position updates on window resize
+     * @param {boolean} [options.eventEffect.disableOnScroll] - Disable position updates on scroll
+     * @param {Function} [options.onUpdate] - Callback function when position updates
      */
     constructor(reference: HTMLElement, popper: HTMLElement, options: PopperOptions = {}) {
         const {
@@ -84,8 +103,9 @@ class CreatePopper {
             }
         );
 
-        this.setPopperStyleProperty(x, y)
+        this.setPopperStyleProperty(x, y)  
         this.onUpdate?.({ x, y, placement: this.placement })
+  
     };
 
     private removeWindowEvents = () => {
@@ -112,15 +132,30 @@ class CreatePopper {
     }
 
 
+    /**
+     * Resets the popper position by clearing positioning styles
+     * @public
+     */
     resetPosition = () => {
         this.setInitialStyles()
     }
 
+    /**
+     * Updates the popper position based on current reference element position
+     * @public
+     */
     updatePosition = () => {
         this.initPlacement();
         this.attachWindowEvent()
     }
 
+    /**
+     * Updates popper configuration and recalculates position
+     * @public
+     * @param {Object} options - New configuration options
+     * @param {Placement} options.placement - New placement value
+     * @param {number} [options.offsetDistance] - New offset distance
+     */
     setOptions({ placement, offsetDistance }: { placement: Placement, offsetDistance?: number }) {
         this.placement = placement
         this.offsetDistance = offsetDistance || this.offsetDistance
@@ -130,6 +165,10 @@ class CreatePopper {
 
     /**
      * Remove event listerners in case they are no longer needed
+     */
+    /**
+     * Removes all event listeners and cleans up positioning styles
+     * @public
      */
     cleanupEvents = (): void => {
         this.setInitialStyles()
@@ -144,6 +183,13 @@ class CreatePopper {
  * @param popper 
  * @param options 
  * @returns 
+ */
+/**
+ * Factory function to create a new popper instance
+ * @param {HTMLElement} reference - The reference element to position against
+ * @param {HTMLElement} popper - The element to be positioned
+ * @param {PopperOptions} [options] - Configuration options
+ * @returns {CreatePopper} A new popper instance
  */
 export const fCreatePopper = (reference: HTMLElement, popper: HTMLElement, options: PopperOptions = {}) => new CreatePopper(reference, popper, options)
 export default CreatePopper
