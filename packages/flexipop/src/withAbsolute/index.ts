@@ -1,1 +1,0 @@
-export { default as UseCreatePopperAbsolute, fCreatePopperAbsolute } from "./popperWithAbsolute"
