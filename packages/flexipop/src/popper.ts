@@ -4,9 +4,7 @@ import { Placement, PopperOptions } from "./types";
 import { determinePosition } from "./helpers";
 
 /**
- * Flexilla Popper --
- */
-/**
+ * Flexilla Popper -- A small, powerful, and efficient positioning solution
  * Creates and manages a popper element that can be positioned relative to a reference element
  * @class
  */
@@ -177,19 +175,4 @@ class CreatePopper {
 
 }
 
-/**
- * Shortcut of : new CreatePopper(...)
- * @param reference 
- * @param popper 
- * @param options 
- * @returns 
- */
-/**
- * Factory function to create a new popper instance
- * @param {HTMLElement} reference - The reference element to position against
- * @param {HTMLElement} popper - The element to be positioned
- * @param {PopperOptions} [options] - Configuration options
- * @returns {CreatePopper} A new popper instance
- */
-export const fCreatePopper = (reference: HTMLElement, popper: HTMLElement, options: PopperOptions = {}) => new CreatePopper(reference, popper, options)
 export default CreatePopper
