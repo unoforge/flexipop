@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npx lerna run build"
+    "build": "npx lerna run build",
+    "test:ui": "npx lerna run test:ui"
   },
   "devDependencies": {
     "@types/node": "^22.5.5",

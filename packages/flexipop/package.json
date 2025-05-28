@@ -6,49 +6,40 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/flexipop.js",
-  "module": "./dist/flexipop.cjs.js",
+  "main": "./dist/flexipop.cjs",
+  "module": "./dist/flexipop.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/flexipop.js"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/flexipop.cjs.js"
-      }
+      "import": "./dist/flexipop.js",
+      "require": "./dist/flexipop.cjs"
     },
-    "./flexipop.css": "./dist/flexipop.css",
-    "./with-absolute": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/flexipopWithAbsolute.js"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/flexipopWithAbsolute.cjs.js"
-      }
-    }
+    "./create-overlay": {
+      "import": "./dist/create-overlay.js",
+      "require": "./dist/create-overlay.cjs"
+    },
+    "./flexipop.css": "./dist/flexipop.css"
   },
   "files": [
     "dist",
-    "README.md",
-    "package.json",
-    "!vite.config.ts",
-    "!.gitignore",
-    "!tsconfig.json"
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1",
-    "vite-plugin-dts": "^4.2.1"
+    "@testing-library/dom": "^10.4.0",
+    "@vitest/ui": "^3.1.4",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.1.4"
   },
   "keywords": [
     "flexipop",
@@ -70,5 +61,8 @@
     "url": "https://github.com/unify-ui-dev/flexipop/issues"
   },
   "license": "MIT",
-  "author": "johnkat-mj"
+  "author": "johnkat-mj",
+  "dependencies": {
+    "@flexilla/utilities": "^2.2.0"
+  }
 }
