@@ -9,8 +9,7 @@ export default defineConfig({
     lib: {
       entry: {
         flexipop: resolve(__dirname, 'src/index.ts'),
-        flexipopWithAbsolute: resolve(__dirname, 'src/withAbsolute/index.ts'),
-
+        'create-overlay': resolve(__dirname, 'src/create-overlay/index.ts'),
       },
       name: 'flexipop',
     },

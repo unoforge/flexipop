@@ -56,23 +56,3 @@ new CreatePopper(
     top     : var(--fx-popper-placement-y, 0px);
 }
 ```
-
-
-
-## Usage with position absolute
-
-```js
-import { CreatePopper } from 'flexipop/with-absolute'
-
-new CreatePopper(
-    referenceElement,//HTMLElement
-    popperElement,//HTMLElement
-    {
-    //   options here
-    }
-  )
-```
-
-> [!IMPORTANT]
-> ⚠ The popperElement must have set `position` to `absolute`.
-> The popperElement and referenceElement must be in a same parend container, and the container must have position set to `relative`
