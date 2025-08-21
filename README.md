@@ -1,11 +1,11 @@
 # Flexipop
 
+> [!WARNING]
+> **Repository Archived**: This repository has been moved to [flexilla](https://github.com/unoforge/flexilla/tree/main/packages/flexipop) as a package. Please use the flexipop package from the flexilla repository instead.
+
 An ultra-compact positioning engine inspired by [Nanopop](https://www.npmjs.com/package/nanopop), but we decided to create our own solution. The main reason? We wanted something tailored specifically to our [library's](https://github.com/unify-ui-dev/flexilla) needs, while also taking the opportunity to learn new techniques and improve our problem-solving skills.
 
 This library thrives on simplicity and efficiency.
-
-> [!IMPORTANT]
-> This package is a part of the `flexilla` library's ecosystem.
 
 
 ## When to opt for FLEXIPOP over PopperJS?

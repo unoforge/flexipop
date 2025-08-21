@@ -1,6 +1,6 @@
 import type { EventEffect, OverlayOptions } from "./types"
 import { CreatePopper, type Placement } from './../index'
-import { $, afterTransition } from "@flexilla/utilities"
+import { $, afterTransition, dispatchCustomEvent } from "@flexilla/utilities"
 import { updateOverlayState } from "./helpers"
 
 
@@ -219,7 +219,15 @@ class CreateOverlay {
      * Removes event listeners and triggers related callbacks
      */
     hide() {
-        this.options.beforeHide?.()
+        let exitAction = false
+        dispatchCustomEvent(this.contentElement, "before-hide", {
+            setExitAction: (value: boolean) => {
+                exitAction = value
+            }
+        })
+        const exitFromBeforeHide = this.options.beforeHide?.()?.cancelAction
+        if (exitAction || exitFromBeforeHide) return
+
         updateOverlayState({
             state: "close",
             popper: this.contentElement,

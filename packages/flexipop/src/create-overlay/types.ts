@@ -34,7 +34,7 @@ export type OverlayOptions = {
     /** Callback function executed before Overlay shows */
     beforeShow?: () => void,
     /** Callback function executed before Overlay hides */
-    beforeHide?: () => void,
+    beforeHide?: ()=>{ cancelAction?: boolean;} |void,
     /** Callback function executed after Overlay shows */
     onShow?: () => void,
     /** Callback function executed after Overlay hides */
